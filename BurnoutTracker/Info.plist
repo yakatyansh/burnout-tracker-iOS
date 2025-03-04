@@ -2,16 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSHealthShareUsageDescription</key>
-	<string>This app requires access to your health data for insights.</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>This app needs to update your health data.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>external-accessory</string>
 		<string>bluetooth-central</string>
-		<string>remote-notification</string>
 		<string>processing</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.556654705033-mp2i0c4p3omi42s99bj1qltjr7dg4r6c</string>
+			</array>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>google</string>
 	</array>
 </dict>
 </plist>

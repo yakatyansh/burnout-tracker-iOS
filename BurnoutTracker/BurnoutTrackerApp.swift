@@ -6,10 +6,20 @@
 //
 
 import SwiftUI
+import FirebaseCore
 import SwiftData
+import AuthenticationServices
 
 @main
 struct BurnoutTrackerApp: App {
+    
+        init() {
+        FirebaseApp.configure()
+    }
+
+    
+    @StateObject private var authManager = AuthManager()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -25,8 +35,12 @@ struct BurnoutTrackerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if authManager.isSignedIn {
+                ContentView()
+                    .modelContainer(sharedModelContainer)
+            } else {
+                LoginView(authManager: authManager)
+            }
         }
-        .modelContainer(sharedModelContainer)
     }
 }
